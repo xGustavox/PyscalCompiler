@@ -62,3 +62,8 @@ class Tag(Enum):
     #Comment
     COMMENT = 46
 
+    EMPTY_TYPE = 1000
+    LOGIC_TYPE = 1001
+    INT_TYPE = 1002
+    DOUBLE_TYPE = 1003
+    ERRO_TYPE = 1004

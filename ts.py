@@ -61,3 +61,6 @@ class TS:
    def printTS(self):
       for key, token in (self.ts.items()):
          print(Fore.GREEN + key, Fore.WHITE + "->", token.toString())
+
+   def setTipo(self, lexema, tipo):
+      self.ts.get(lexema).setTipo(tipo)

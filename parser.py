@@ -52,6 +52,7 @@ class Parser():
 	def Classe(self):
 		if (self.eat(Tag.KW_CLASS)): 
 			if (not self.eat(Tag.ID)): self.sinalizaErroSintatico('ID', '')
+
 			if (not self.eat(Tag.SP_COLONS)): self.sinalizaErroSintatico(':', '')
 			self.ListaFuncao()
 			self.Main()
