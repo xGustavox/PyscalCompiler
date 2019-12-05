@@ -25,7 +25,7 @@ class Lexer():
       try:
          self.input_file.close()
       except IOError:
-         print('Erro dao fechar arquivo. Encerrando.')
+         print('Erro ao fechar arquivo. Encerrando.')
          sys.exit(0)
 
    def sinalizaErroLexico(self, message, line = None, coluna = None):
@@ -33,7 +33,7 @@ class Lexer():
          self.n_erros += 1
          
          print(Fore.LIGHTRED_EX + '[Erro Lexico]: ', message, 
-            '(Ln ' + str(line) + ', Col ' + str(coluna) + ')' if (line and coluna is not None) else '');
+            '(Ln ' + str(line) + ', Col ' + str(coluna) + ')' if (line and coluna is not None) else '')
 
          self.modoPanico = True
 
@@ -122,7 +122,7 @@ class Lexer():
                tok = Token(Tag.OP_PLUS, '+', self.n_line, self.n_column)
             elif (c == '-'):
                # Se o ultimo token retornado for número ou variavel considera o operador como subtração
-               if (self.last_token.value == 44 or self.last_token.value == 45 or self.last_token.value == 41):
+               if (self.last_token.nome.value == 44 or self.last_token.nome.value == 45 or self.last_token.nome.value == 41):
                   tok = Token(Tag.OP_MINUS, '-', self.n_line, self.n_column)
                else:
                   tok = Token(Tag.OP_NEGATIVE, '-', self.n_line, self.n_column)
@@ -248,7 +248,7 @@ class Lexer():
 
          if (tok is not None):
             if (tok != -1):
-               self.last_token = tok.getNome()
+               self.last_token = tok
 
             return tok
       # fim while

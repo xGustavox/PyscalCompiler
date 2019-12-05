@@ -56,7 +56,7 @@ class Tag(Enum):
 
     # Numeros
     NUM = 43
-    CONST_INTEGER = 44,
+    CONST_INTEGER = 44
     CONST_DOUBLE = 45
 
     #Comment

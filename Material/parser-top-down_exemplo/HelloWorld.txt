@@ -1,0 +1,11 @@
+if var - 1 < 100 then {
+	print var
+}
+else { 
+	if var + 1 >= 100 then {
+		print var
+	}
+	else { 
+		print 100
+	}
+}

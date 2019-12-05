@@ -1,6 +1,7 @@
 from tag import Tag
 from lexer import Lexer
 from colorama import init, Fore, Back, Style
+from parser import Parser
 import time
 
 # ====================
@@ -14,13 +15,11 @@ if __name__ == "__main__":
   init()
 
   lexer = Lexer('HelloWorld.txt')
+  parser = Parser(lexer)
 
-  print(Fore.LIGHTMAGENTA_EX + '\n====== Lista de Tokens ======\n')
-  token = lexer.proxToken()
+  print(Fore.WHITE + '\n====== Pyscal Compiler ======\n')
 
-  while (token is not -1 and token.getNome() != Tag.EOF):
-    print(Fore.CYAN + token.toString(), Fore.WHITE + '(Ln ' + str(token.getLinha()) + ', Col ' + str(token.getColuna()) + ')')
-    token = lexer.proxToken()
+  parser.Programa()
 
   print(Fore.LIGHTMAGENTA_EX + '\n====== Tabela de simbolos ======\n')
   lexer.printTS()
