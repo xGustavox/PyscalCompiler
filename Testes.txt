@@ -1,3 +1,30 @@
+# Teste1
+
+class Teste1:
+   def bool booleanFunction(bool v1):
+      return false;
+   end;
+
+   def void fazNada(String v1):
+   end;
+
+   defstatic void main(String[] args):
+      integer a;
+      a = 0;
+      write("Teste 1:");
+      write("\n");
+
+
+      if (booleanFunction(true)):
+         write("N@o entrei aqui.");
+      else:
+         write("Mas aqui &u entrei!");
+      end;
+   end;
+end.
+
+# Teste2
+
 class TesteT2: 
    def bool exemploFuncao(integer x, integer y):
       while(x <= y):
@@ -20,7 +47,7 @@ class TesteT2:
          write(x > y and z == 10);
       end;
 			
-      if (!exemploDeFuncao(x,y) or exemploDeFuncao(x,z)):
+      if (!exemploDeFuncao(x,y) or exemploDeFuncao(x,z))
          write("Entrou aqui");
       end;
    end;

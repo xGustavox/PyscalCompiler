@@ -327,7 +327,15 @@ class Parser():
 
 	def Expressao(self):
 		# ID, ConstInteger, ConstDouble, ConstString, "true", "false", "-"(negação) , "!", "("
-		if (self.token.getNome() == Tag.ID or self.token.getNome() == Tag.CONST_INTEGER or self.token.getNome() == Tag.CONST_DOUBLE or self.token.getNome() == Tag.CONST_STRING or self.token.getNome() == Tag.KW_TRUE or self.token.getNome() == Tag.KW_FALSE or self.token.getNome() == Tag.OP_NEGATIVE or self.token.getNome() == Tag.OP_EXCLAMATION_MARK or self.token.getNome() == Tag.SP_OPEN_BRAKETS):
+		if (self.token.getNome() == Tag.ID or 
+			self.token.getNome() == Tag.CONST_INTEGER or 
+			self.token.getNome() == Tag.CONST_DOUBLE or 
+			self.token.getNome() == Tag.CONST_STRING or 
+			self.token.getNome() == Tag.KW_TRUE or 
+			self.token.getNome() == Tag.KW_FALSE or 
+			self.token.getNome() == Tag.OP_NEGATIVE or 
+			self.token.getNome() == Tag.OP_EXCLAMATION_MARK or 
+			self.token.getNome() == Tag.SP_OPEN_BRAKETS):
 			self.Exp1()
 			self.ExpLinha()
 		else:
@@ -339,7 +347,15 @@ class Parser():
 
 	def Exp1(self):
 		# ID, ConstInteger, ConstDouble, ConstString, "true","false", "-"(negação) , "!", "("
-		if (self.token.getNome() == Tag.ID or self.token.getNome() == Tag.CONST_INTEGER or self.token.getNome() == Tag.CONST_DOUBLE or self.token.getNome() == Tag.CONST_STRING or self.token.getNome() == Tag.KW_TRUE or self.token.getNome() == Tag.KW_FALSE or self.token.getNome() == Tag.OP_NEGATIVE or self.token.getNome() == Tag.OP_EXCLAMATION_MARK or self.token.getNome() == Tag.SP_OPEN_BRAKETS):
+		if (self.token.getNome() == Tag.ID or 
+			self.token.getNome() == Tag.SP_OPEN_BRAKETS or
+			self.token.getNome() == Tag.CONST_INTEGER or 
+			self.token.getNome() == Tag.CONST_DOUBLE or 
+			self.token.getNome() == Tag.CONST_STRING or 
+			self.token.getNome() == Tag.KW_TRUE or 
+			self.token.getNome() == Tag.KW_FALSE or 
+			self.token.getNome() == Tag.OP_NEGATIVE or 
+			self.token.getNome() == Tag.OP_EXCLAMATION_MARK):
 			self.Exp2()
 			self.Exp1Linha()
 		else:
@@ -405,7 +421,7 @@ class Parser():
 	def Exp1Linha(self):
 		if (self.eat(Tag.OP_LESS) or self.eat(Tag.OP_LESS_EQUAL) or self.eat(Tag.OP_GREATER) or self.eat(Tag.OP_GREATER_EQUAL) or self.eat(Tag.OP_LESS) or self.eat(Tag.OP_EQUAL) or self.eat(Tag.OP_DIFERENT)):
 			self.Exp2()
-			self.Exp1()
+			self.Exp1Linha()
 		else:
 			if (self.token.getNome() == Tag.KW_OR or self.token.getNome() == Tag.KW_AND or self.token.getNome() == Tag.SP_CLOSE_BRAKETS or self.token.getNome() == Tag.SP_SEMICOLON or self.token.getNome() == Tag.SP_COMMA):
 				return
